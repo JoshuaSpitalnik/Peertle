@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/peertle/static/css/main.e685b3c5.css",
-    "main.js": "/peertle/static/js/main.9ca58160.js",
-    "index.html": "/peertle/index.html",
-    "main.e685b3c5.css.map": "/peertle/static/css/main.e685b3c5.css.map",
-    "main.9ca58160.js.map": "/peertle/static/js/main.9ca58160.js.map"
+    "main.css": "/Peertle/static/css/main.e685b3c5.css",
+    "main.js": "/Peertle/static/js/main.9ca58160.js",
+    "index.html": "/Peertle/index.html",
+    "main.e685b3c5.css.map": "/Peertle/static/css/main.e685b3c5.css.map",
+    "main.9ca58160.js.map": "/Peertle/static/js/main.9ca58160.js.map"
   },
   "entrypoints": [
     "static/css/main.e685b3c5.css",
