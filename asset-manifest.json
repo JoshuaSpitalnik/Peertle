@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Peertle/static/css/main.e685b3c5.css",
-    "main.js": "/Peertle/static/js/main.9ca58160.js",
+    "main.js": "/Peertle/static/js/main.104d8267.js",
     "index.html": "/Peertle/index.html",
     "main.e685b3c5.css.map": "/Peertle/static/css/main.e685b3c5.css.map",
-    "main.9ca58160.js.map": "/Peertle/static/js/main.9ca58160.js.map"
+    "main.104d8267.js.map": "/Peertle/static/js/main.104d8267.js.map"
   },
   "entrypoints": [
     "static/css/main.e685b3c5.css",
-    "static/js/main.9ca58160.js"
+    "static/js/main.104d8267.js"
   ]
 }
