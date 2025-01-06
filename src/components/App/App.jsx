@@ -70,7 +70,7 @@ const Round = (roundConfig, roundState) => {
 		if (roundState.currentGuess == roundConfig.answer) {
 			let new_rows = getUpdatedRowStates(roundState.currentRowStates, roundState.currentStage, RowState("right", roundState.currentGuess));
 			return Round(
-				roundConfig, RoundState(roundState.currentStage, false, roundState.currentGuess, new_rows, roundState.state)
+				roundConfig, RoundState(roundState.currentStage, false, roundState.currentGuess, new_rows, true)
 			)
 		}
 		let rows = getUpdatedRowStates(roundState.currentRowStates, roundState.currentStage, RowState("wrong", roundState.currentGuess));
@@ -128,7 +128,7 @@ function App() {
         <div style={{ "zIndex": 1, top: 0, position: "relative", width: "100%", height: "100%"}}>
           <div style={{ "fontSize": "20px", position: "absolute", top: 0, left: 0, display: "flex", "justifyContent": "center", width: "100%" }}>
             <div style={{ width: "100%" }}>
-              <div style={{ display: "flex", "alignItems": "center", "justifyContent": "center", "gap": "100px" }}>
+              <div style={{ display: "flex", "alignItems": "flex-end", "justifyContent": "center", "gap": "100px" }}>
                 <div style={{ display: "flex", width: "70px", "justifyContent": "space-between" }}>
                   <button className="icon-button">
                     <i className="fa fa-question-circle" style={{ "fontSize": "30px" }}></i>
@@ -155,10 +155,8 @@ function App() {
           </div>
           <div style={{ "display": "flex", "width": "100%", "justifyContent": "center" }}>
             <div style={{ "gap": "8px", "width": "30%", "display": "flex", "flexDirection": "column", "justifyContent": "center", "alignItems": "center" }}>
-              <i onClick={round.play} className="fa fa-circle" style={{ "marginLeft": "15px", "marginTop": "100px", "marginBottom": "30px", "fontSize": "100px", "color": "#464c59" }}>
-                <i className="fa fa-play" style={{ "position": "relative", "top": "-20%", "left": "-46%", "fontSize": "40px", "color": "#50b993" }}></i>
-              </i>
-              <button disabled={round.wasEnded} onClick={(event) => { setRound(round.skip) }} style={{ "width": "20%", "height": "30px", "backgroundColor": "#464c59", "border": "none", "border-radius": "8px" }}>
+			  <i class="fa fa-play-circle" onClick={round.play} style={{ "marginTop": "100px", "marginBottom": "30px", "fontSize": "100px" }}></i>
+              <button disabled={round.wasEnded} onClick={(event) => { setRound(round.skip) }} style={{ "width": "30%", "height": "30px", color: "white", "backgroundColor": "#777575", "border": "none", "borderRadius": "8px" }}>
                 Skip
               </button>
               {round.currentRowStates.map((state, index) => {
