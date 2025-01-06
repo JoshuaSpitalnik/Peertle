@@ -56,7 +56,7 @@ const Round = (roundConfig, roundState) => {
 	};
 	
 	const play = () => {
-		if (roundState.canPlay) {
+		if (roundState.canPlay && roundState.currentStage < roundState.currentRowStates.length) {
 			playSoundForMillis(currentInterval());
 			return Round(
 				roundConfig, RoundState(
@@ -96,9 +96,9 @@ const Round = (roundConfig, roundState) => {
 }
 
 async function getRandomRoundConfig() {
-	let songs = await ((await fetch("http://localhost:3001/api/songs"))).json();
+	let songs = await ((await fetch("./songs/songs.json"))).json();
 	let random_songs = songs[Math.floor(Math.random() * songs.length)]
-	return RoundConfig(random_songs["name"], new Audio("./songs/" + random_songs["file_name"]), milisIntervals);
+	return RoundConfig(random_songs, new Audio(`./songs/${random_songs}.m4a`, milisIntervals));
 }
 
 function App() {
