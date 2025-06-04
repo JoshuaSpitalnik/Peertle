@@ -1,53 +1,57 @@
+import React from 'react';
+import './GuessRow.css';
+
 function GuessRow(props) {
-	const handleGuessSubmit = (event) => {
-		event.preventDefault();
-		props.setRound(props.round.guess());
-	}
-	
-	switch (props.status) {
-		case "available": {
+    const handleGuessSubmit = (event) => {
+        event.preventDefault();
+        props.setRound(props.round.guess());
+    }
+
+    switch (props.status) {
+        case "available":
             return (
-                <div style={ {"display": "flex", "width": "90%", "height": "30px", "backgroundColor": "#464c59", "borderRadius": "10px", "justifyContent": "center"} }>
-                    <form style={{ "background": "none", "border": "none", "width": "95%", "height": "100%" }} onSubmit={handleGuessSubmit}>
-                        <input style={{ "background": "none", "border": "none", color: "white", "width": "95%", "height": "90%" }} disabled={props.round.wasEnded} placeholder="Enter your guess..." onChange={(event) => {props.round.updateGuess(event.target.value)}} type="text"></input>
+                <div className="guess-row available">
+                    <form className="guess-form" onSubmit={handleGuessSubmit}>
+                        <input
+                            className="guess-input"
+                            disabled={props.round.wasEnded}
+                            placeholder="Enter your guess..."
+                            onChange={(event) => props.round.updateGuess(event.target.value)}
+                            type="text"
+                        />
                     </form>
                 </div>
             );
-		}
-        case "skipped": {
+        case "skipped":
             return (
-                <div style={ {"display": "flex", "width": "90%", "height": "30px", "backgroundColor": "#464c59", "borderRadius": "10px", "justifyContent": "center", "alignItems": "center"} }>
-                    <div style={{ "textAlign": "left", "fontStyle": "italic", "width": "95%", "color": "grey" }}>
+                <div className="guess-row skipped">
+                    <div className="guess-text italic">
                         Skipped
                     </div>
                 </div>
             );
-		}
-        case "wrong": {
+        case "wrong":
             return (
-                <div style={ {"display": "flex", "width": "90%", "height": "30px", "backgroundColor": "#550000", "borderRadius": "10px", "justifyContent": "center", "alignItems": "center"} }>
-                    <div style={{ "textAlign": "left", "width": "95%", "color": "grey" }}>
+                <div className="guess-row wrong">
+                    <div className="guess-text">
                         {props.last_guess}
                     </div>
                 </div>
             );
-		}
-        case "right": {
+        case "right":
             return (
-                <div style={ {"display": "flex", "width": "90%", "height": "30px", "backgroundColor": "#005500", "borderRadius": "10px", "justifyContent": "center", "alignItems": "center"} }>
-                    <div style={{ "textAlign": "left", "width": "95%", "color": "grey" }}>
+                <div className="guess-row right">
+                    <div className="guess-text">
                         {props.last_guess}
                     </div>
                 </div>
             );
-		}
-        case "locked": {
+        case "locked":
             return (
-                <div style={ {"display": "flex", "width": "90%", "height": "30px", "backgroundColor": "#464c59", "borderRadius": "10px"} }>
+                <div className="guess-row locked">
                 </div>
             );
-		}
-	}
+    }
 }
 
 export default GuessRow;
